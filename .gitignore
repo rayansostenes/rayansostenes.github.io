@@ -3,6 +3,8 @@ _site
 .jekyll
 .bundle
 .sass-cache
+Rayan Sóstenes.sublime-project
+Rayan Sóstenes.sublime-workspace
 Gemfile
 Gemfile.lock
 node_modules
