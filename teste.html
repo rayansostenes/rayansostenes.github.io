@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 24px;
+            width: 86px;
+        }
+    </style>
+</head>
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<body>
+<script>
+    var YOUTUBE_CHANNEL = "GoogleDevelopers";
+    var YOUTUBE_CHANNEL_ID = "";
+
+    if (YOUTUBE_CHANNEL_ID){
+        var text = "<div class='g-ytsubscribe' "+
+        "data-channelid='"+YOUTUBE_CHANNEL_ID+"'"+ "data-layout='default' data-count='hidden'></div>";
+    }
+    else if (YOUTUBE_CHANNEL){
+        var text = "<div class='g-ytsubscribe' "+
+        "data-channel='"+YOUTUBE_CHANNEL+"'"+
+        "data-layout='default' data-count='hidden'></div>";
+    }
+
+
+    function getParam(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    if (navigator.userAgent.match(/Android/i)) {
+        var h = getParam("h") || window.innerHeight;
+        var w = getParam("w") || window.innerWidth;
+    }else{
+        var w = getParam("w") || 86;
+        var h = getParam("h") || 24;
+    }
+    var num_w = Math.ceil(w/86);
+    var num_h = Math.ceil(h/24);
+    var w_i = num_w*86;
+    var h_i = num_h*24;
+
+    var body = document.querySelector("body");
+    if (w) {body.style.width = w_i+"px";}
+    if (h) {body.style.height = h_i+"px";}
+
+    var num_total = num_h*num_w;
+
+    for (var i = 0; i < num_total; i++) {
+        document.write(text);
+    }
+
+</script>
+</body>
+</html>
