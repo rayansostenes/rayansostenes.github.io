@@ -1,16 +1,27 @@
 <script src="https://apis.google.com/js/platform.js"></script>
-
+<div id="chan-1"></div>
+<div id="chan-2"></div>
 <script>
-  function onYtEvent(payload) {
-    if (payload.eventType == 'subscribe') {
-      // Add code to handle subscribe event.
-    } else if (payload.eventType == 'unsubscribe') {
-      // Add code to handle unsubscribe event.
-    }
-    if (window.console) { // for debugging only
-      window.console.log('YT event: ', payload);
-    }
+gapi.ytsubscribe.render(
+   document.querySelector("#chan-1"),
+   {
+       "channel": "SMOSH", 
+       "layout": "default",
+       "count":"default",
+       "onytevent":onYtEvent.bind(null,"SMOSH")
+   }
+);
+gapi.ytsubscribe.render(
+  document.querySelector("#chan-2"),
+  {
+       "channel": "Apple", 
+       "layout": "default",
+       "count":"default",
+       "onytevent":onYtEvent.bind(null,"Apple")
   }
-</script>
+);
 
-<div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default" data-onytevent="onYtEvent"></div>
+function onYtEvent(channelName,payload) {
+    console.log(channelName);
+}
+</script>
