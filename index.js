@@ -197,7 +197,7 @@
     }
 
     function create_cookie(){
-        setCookie("ytSubClick", true, 360);
+        //setCookie("ytSubClick", true, 360);
     }
 
     function check_cookie(){
