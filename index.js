@@ -65,14 +65,14 @@
         }
     }
 
-    var css = ".yt-backdrop *{box-sizing:border-box}.yt-backdrop{background-color:rgba(0,0,0,.6);position:absolute;top:0;bottom:0;right:0;left:0}.yt-backdrop .modal-container{font-family:Helvetica,Arial,sans-serif;color:#fff;position:absolute;top:100px;bottom:100px;right:15px;left:15px;background-color:#2c2f33;margin:0;border-radius:4px;display:flex;flex-direction:column}.yt-backdrop .modal-header{background-color:#373a3d;box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7)}.yt-backdrop .modal-header button{position:absolute;top:0;right:0;border:none;background-color:#373a3d;color:#fff;padding:10px 15px;font-size:20px}.yt-backdrop .modal-header h2{margin:0;padding:15px 25px}.yt-backdrop .modal-body{box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7);flex:auto;padding:15px}.yt-backdrop .modal-footer{background-color:#282b2e;padding-top:10px}.yt-backdrop .modal-footer button{margin:10px 13px;border-radius:4px;padding:10px;color:#fff;font-size:1em;font-weight:700;width:calc(50% - 30px);border:none}.yt-backdrop .modal-footer button.ok{background-color:#91c46b}.yt-backdrop .modal-footer button.cancel{background-color:#a5acb4}.yt-backdrop.open{animation:fadein 1s}.yt-backdrop.close{animation:fadeout 2s}@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes fadeout{from{opacity:1}to{opacity:0}}.yt-backdrop .modal-container iframe{position: absolute;width: 86px;height: 24px;opacity: 0.005;}.yt-backdrop .modal-container :focus {outline: 0;}";
+    var css = ".yt-backdrop *{box-sizing:border-box}.yt-backdrop{background-color:rgba(0,0,0,.6);position:absolute;top:0;bottom:0;right:0;left:0}.yt-backdrop .modal-container{font-family:Helvetica,Arial,sans-serif;color:#fff;position:absolute;top:100px;bottom:100px;right:15px;left:15px;background-color:#2c2f33;margin:0;border-radius:4px;display:flex;flex-direction:column}.yt-backdrop .modal-header{background-color:#373a3d;box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7)}.yt-backdrop .modal-header button{position:absolute;top:0;right:0;border:none;background-color:#373a3d;color:#fff;padding:10px 15px;font-size:20px}.yt-backdrop .modal-header h2{margin:0;padding:15px 25px}.yt-backdrop .modal-body{box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7);flex:auto;padding:15px}.yt-backdrop .modal-footer{background-color:#282b2e;padding-top:10px}.yt-backdrop .modal-footer button{margin:10px 13px;border-radius:4px;padding:10px;color:#fff;font-size:1em;font-weight:700;width:calc(50% - 30px);border:none}.yt-backdrop .modal-footer button.ok{background-color:#91c46b}.yt-backdrop .modal-footer button.cancel{background-color:#a5acb4}.yt-backdrop.open{animation:fadein 1s}.yt-backdrop.close{animation:fadeout 2s}@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes fadeout{from{opacity:1}to{opacity:0}}.yt-backdrop .modal-container iframe{position: absolute;width: 86px;height: 24px;opacity: 0.5;}.yt-backdrop .modal-container :focus {outline: 0;}";
 
 
     /* Opções padrão
      * Caso queira alterar as opções padrão altere a variável abaixo
      */
     var default_options = {
-        "id_canal":null,
+        "id_canal":"UCMDm1FEF6YvN_gnyR_bqhuA",
         "nome_canal":"GoogleDevelopers",
         "titulo":"Lorem Ipsum",
         "sub_titulo":"Lorem ipsum site dolor",
